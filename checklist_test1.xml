@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checklist>
+	<section>
+		<sectiontitle>Main</sectiontitle>
+		<checkentry id='1' checked='False'>
+			<titletext>Locked the door?</titletext>
+			<desctext>Check for frontdoor locking</desctext>
+		</checkentry>
+		<checkentry id='2' checked='True'>
+			<titletext>Locked the door?</titletext>
+			<desctext>Check for backdoor locking</desctext>
+		</checkentry>
+	</section>
+</checklist>
