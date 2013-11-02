@@ -11,4 +11,15 @@
 			<desctext>Check for backdoor locking</desctext>
 		</checkentry>
 	</section>
+	<section>
+		<sectiontitle>Second</sectiontitle>
+		<checkentry id='3' checked='False'>
+			<titletext>Locked the window?</titletext>
+			<desctext>Check for front window locking</desctext>
+		</checkentry>
+		<checkentry id='4' checked='False'>
+			<titletext>Locked the window?</titletext>
+			<desctext>Check for back window locking</desctext>
+		</checkentry>
+	</section>
 </checklist>

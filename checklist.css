@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+font-family: 'Open Sans', sans-serif;
+}
+
+input[type=checkbox] 
+{
+	width: 34px; 
+	height: 34px;
+	border-radius: 22px;
+	border: 1px solid #bbb;
+	text-align: center;
+}
+
+span.titletext {
+	font-size: 1.2em;
+}
+
+span.desctext {
+	font-size: 0.8em;
+	/*padding-left: 30px;*/
+}
+
+td {
+	width: 400px;
+	padding: 20px;
+	border-bottom: 1px solid #85A8CC;
+	text-align: center;
+}
+
+tr { /*Why isnt this working?*/
+	/*padding: 40px;*/
+	border: 50px solid #85A8CC;
+}
+
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+li
+{
+display:inline;
+}
+

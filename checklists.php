@@ -6,9 +6,13 @@
 <link rel="stylesheet" href="checklist.css" type="text/css" />
 <script src="buildchecklist.js"></script>
 </head>
+<body>
+
 <?php 
 include "newChecklist.php";
-echo("<body onload='buildChecklist()'>"
-
+echo("
+<script>buildChecklist('$checklist_filename');
+</script>");
+?>
 </body>
 </html>
