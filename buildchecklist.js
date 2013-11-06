@@ -1,7 +1,19 @@
-function buildChecklist(doctoopen) {
+function buildChecklist() {
+	
+	//Build a new div to contain checklist so we can centre it
+	checklistdiv = document.createElement("div");
+	checklistdiv.setAttribute("id", "checklistdiv");
+	
+	
 	xmlhttp=new XMLHttpRequest();
-
+	var name = 'filename';
 	//Get checklist to open
+	if (name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search)) 
+	{
+	
+		doctoopen = decodeURIComponent(name[1].replace(/\+/g, '%20'));
+	}
+	
 	var doc = "./Checklists/" + doctoopen + ".xml";
 	//document.write(doc);
 	
@@ -12,9 +24,8 @@ function buildChecklist(doctoopen) {
 	//Set Title as document name - actually this will need to be generated based pn a caseref and a date
 	headertitle = document.createElement("h1");
 	headertitle.textContent = doctoopen;
-	document.body.appendChild(headertitle);
+	checklistdiv.appendChild(headertitle);
 	
-	//document.getElementById("checklistname").innerHTML = doctoopen.capitalise;
 	
 	//Need to get Section elements as list - then iterate through and select checkentries within iteration
 	var s=xmlDoc.getElementsByTagName("section");
@@ -27,7 +38,7 @@ function buildChecklist(doctoopen) {
 		
 		sectiontitle = document.createElement("h2");
 		sectiontitle.textContent = z[0].childNodes[0].nodeValue;
-		document.body.appendChild(sectiontitle);
+		checklistdiv.appendChild(sectiontitle);
 		
 		//Generate checklist table from xml template
 		table = document.createElement("table");
@@ -67,8 +78,8 @@ function buildChecklist(doctoopen) {
 		  tr.appendChild(tdcheck);
 		  table.appendChild(tr);
 		}
-		document.body.appendChild(table);
+		checklistdiv.appendChild(table);
 	}
 
-
+document.body.appendChild(checklistdiv);
 }

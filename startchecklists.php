@@ -41,7 +41,7 @@
 	$files1 = scandir($dir);
 	print_r($files);
 	#Start building list box - ipad only shows dropdown - to list all items you need to create function to drop div and ul items and then use onclick
-	echo("<select name='t_file' size'5'>");
+	echo("<select name='t_file'>");
 	#Loop for each located file
 	foreach ($files1 as $currentfile) {
 		#echo("<option>$currentfile</option>");
@@ -61,14 +61,14 @@
 	</form>
 </div>
 <div id="l_checklist" class="selection">
-	<form method="get" action="checkists.php"></form>
+	<form method="get" action="checklists.html">
 	<?php
 	#PHP script to populate listbox with names of all xml files in Templates directory
 	$dir    = './Checklists';
 	#Get list of files in directory
 	$files1 = scandir($dir);
 	#Start building list box
-	echo("<select name='t_file' size='5' multiple='1'>");
+	echo("<select name='filename'>");
 	#Loop for each located file
 	foreach ($files1 as $currentfile) {
 		if($currentfile != '.' || $currentfile != '..')
@@ -83,6 +83,8 @@
 	}
 	echo ("</select>");
 	?>
+	<input type="submit" value="Load Checklist" />
+	</form>
 </div>
 
 

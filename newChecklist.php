@@ -21,4 +21,5 @@ $write = fwrite($fp,$xml->saveXML());
 fclose($fp);
 //Run buildChecklists function with name of new file.
 //print_r("finished")
+header("Location: ./checklists.html?filename=$checklist_filename")
 ?>
