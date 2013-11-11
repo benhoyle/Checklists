@@ -23,6 +23,7 @@ function buildChecklist() {
 	
 	//Set Title as document name - actually this will need to be generated based pn a caseref and a date
 	headertitle = document.createElement("h1");
+	headertitle.setAttribute("id", "headertitle");
 	headertitle.textContent = doctoopen;
 	checklistdiv.appendChild(headertitle);
 	
@@ -74,6 +75,7 @@ function buildChecklist() {
 		  checkbox.setAttribute("name", "checked");
 		  checkbox.setAttribute("value", checkboxname);
 		  checkbox.checked = a;
+		  checkbox.setAttribute("onclick", "updateChecklist(this)");
 		  tdcheck.appendChild(checkbox);
 		  tr.appendChild(tdcheck);
 		  table.appendChild(tr);
@@ -82,4 +84,15 @@ function buildChecklist() {
 	}
 
 document.body.appendChild(checklistdiv);
+}
+
+function updateChecklist(cb) {
+	//Function to run on checkbox click
+	xmlhttpuc=new XMLHttpRequest();
+	
+	//Need to convert cb.value into a number
+	var checkbox = cb.value.slice(cb.value.indexOf("[")+1, cb.value.length-1);
+	var URL = "updateChecklist.php?checkbox=" + checkbox + "&c_file=" + document.getElementById("headertitle").textContent + "&c_value=" + cb.checked;
+	xmlhttpuc.open("GET", URL, true);
+	xmlhttpuc.send();
 }
